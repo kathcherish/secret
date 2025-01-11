@@ -11,7 +11,7 @@ if button2:
     st.snow()
     
 if button3:
-    st.write("1/10 of 2025 SECRET UNLOCKED. See ya on fe[bravo]ry! There will be more next month, see ya soon!")
+    st.write("1/10 of 2025 SECRET UNLOCKED. See ya on fe[bravo]ry!")
     st.balloons()
     st.snow()
     
