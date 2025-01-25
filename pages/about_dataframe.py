@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 data = pd.read_excel('./pages/source.xlsx')
 
@@ -10,5 +11,6 @@ criteria3 = data['Price'] > 25000
 criteria4 = (data['Price'] > 15000) & (data['Price'] < 50000)
 criteria5 = (criteria1) & (criteria2) & (criteria4)
 
-print(data[criteria5])
+#print(data[criteria5])
 print(data[criteria5].sort_values('Price',ascending=True))
+st.dataframe(data)
