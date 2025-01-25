@@ -16,6 +16,7 @@ criteria4 = (data['Price'] > 15000) & (data['Price'] < 50000)
 criteria5 = (criteria1) & (criteria2) & (criteria4)
 
 data = data[criteria1]
+data = data[criteria2]
 
 #print(data[criteria5])
 print(data[criteria5].sort_values('Price',ascending=True))
