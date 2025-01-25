@@ -6,8 +6,6 @@ unique_category = data['category'].unique()
 
 selected_category = st.multiselect("Select what category you want",options = unique_category)
 
-print(data)
-
 criteria1 = data ['Category'] == 'Food'
 criteria2 = data['Store'] == 'Indomaret'
 criteria3 = data['Price'] > 25000
