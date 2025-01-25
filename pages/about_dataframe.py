@@ -3,6 +3,7 @@ import streamlit as st
 
 data = pd.read_excel('./pages/source.xlsx')
 unique_category = data['Category'].unique()
+unique_store = data['Store'].unique()
 
 selected_category = st.multiselect("Select Category",options = unique_category)
 criteria1 = data['Category'].isin(selected_category)
