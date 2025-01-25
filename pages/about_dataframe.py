@@ -4,7 +4,7 @@ import streamlit as st
 data = pd.read_excel('./pages/source.xlsx')
 unique_category = data['category'].unique()
 
-selected_category = st.multiselect("Select what category you want",options = unique_category)
+selected_category = st.multiselect("Select Category",options = unique_category)
 
 criteria1 = data ['Category'] == 'Food'
 criteria2 = data['Store'] == 'Indomaret'
