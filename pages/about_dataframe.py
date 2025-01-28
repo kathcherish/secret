@@ -13,7 +13,7 @@ price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,
 
 criteria1 = data['Category'].isin(selected_category)
 criteria2 = data['Store'].isin(selected_store)
-criteria3 = data['price'] <= price_point
+criteria3 = data['Price'] <= price_point
 
 join_criteria = (criteria1) & (criteria2) & (criteria3)
 
