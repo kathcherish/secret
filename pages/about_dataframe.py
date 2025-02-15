@@ -23,6 +23,9 @@ with st.container(border=True):
   for i in range(data_count):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
+
+    product_name = data.iloc[i]['Name']
+    st.write(product_name)
     
     product_price = data.iloc[i]['Price']
     st.write(product_price)
