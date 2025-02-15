@@ -24,4 +24,7 @@ with st.container(border=True):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
     
+    product_price = data.iloc[i]['Price']
+    st.write(product_price)
+    
   st.dataframe(data,use_container_width=True)
