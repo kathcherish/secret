@@ -21,7 +21,7 @@ with st.container(border=True):
   data = data[join_criteria]
   data_count = len(data)
   for i in range(data_count):
-    product_picture = data.iloc[i]['Picture']
+    product_picture = data.iloc[i]['Picture,width = 250']
     st.image(product_picture)
     
   st.dataframe(data,use_container_width=True)
