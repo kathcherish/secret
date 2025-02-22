@@ -11,4 +11,7 @@ conversion_factors = {
 
 #selection category
 category_list = list(conversion_factors.keys())
+
+
 category = st.radio("Select category",options=category_list)
+base_unit_list = list(conversion_factors[category].keys())
