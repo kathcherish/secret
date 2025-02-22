@@ -18,17 +18,22 @@ with col1:
   st.write(category_list)
 
 with col2:
-  pass
+  st.write("Input Numbers")
 
 with col3:
   base_unit_list = list(conversion_factors[category].keys())
   base_unit = st.radio("Select Base",options=base_unit_list)
   st.write(base_unit_list)
+  st.write("from")
 
 with col4:
   target_unit_list = list(conversion_factors[category].keys())
   target_unit = st.radio("Select Target",options=target_unit_list)
   st.write(target_unit_list)
+  st.write("to")
+
+with col5:
+  st.write("Output Result")
 
 
 
