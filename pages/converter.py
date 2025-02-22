@@ -1,12 +1,12 @@
 import streamlit as st
 
 conversion_factors = {
-  'distance': ('mm':1), 
-  'weight':('cm':0,1)
-  'time':('m':0.01)}
+  'distance': {('mm':1), 
+               ('cm':0,1),
+               ('m':0.01)},
 
-'weight':pass,
-'time':pass
+'weight':None,
+'time':None
 }
 
 #selection category
