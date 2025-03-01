@@ -12,7 +12,7 @@ conversion_factors = {
                'cabbage': 25,
                'banana': 88,
                'coke': 139,
-               'milk': 42 }
+               'milk': 42},
         
 
 'weight':None,
