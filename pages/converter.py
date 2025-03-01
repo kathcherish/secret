@@ -3,7 +3,17 @@ import streamlit as st
 conversion_factors = {
   'distance': {'mm':1, 
                'cm':0.1,
-               'm':0.01},
+               'm': 0.01},
+  'calories': {'fries': 319,
+               'donut': 190,
+               'burger': 290,
+               'ice cream': 207,
+               'apple':52,
+               'cabbage': 25,
+               'banana': 88,
+               'coke': 139,
+               'milk': 42 }
+        
 
 'weight':None,
 'time':None
