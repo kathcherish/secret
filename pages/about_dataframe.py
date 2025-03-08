@@ -28,6 +28,10 @@ with st.container(border=True):
     if st.button("Buy",key=str(i)):
       st.write("Ok,thank you!")
 
+    if st.button("Add To Cart",key=str(i)+"b"):
+      st.write("Added to cart successfully. It will be deliver soon!")
+      
+
     product_name = data.iloc[i]['Name']
     st.write(product_name)
     
