@@ -1,0 +1,69 @@
+import streamlit as st
+st.set_page_config(layout='wide')
+
+st.title('Fun Conversion App')
+
+conversion_factors = {
+  'distance':{'mm':1,
+              'cm':0.1,
+              'm' :0.01},
+  'calories': {'fries':319/319,
+               'donut':319/190,
+               'burger':319/290,
+               'ice cream':319/207,
+               'apple':319/52.1,
+               'banana':319/88.7,
+               'cabbage':319/24.6,
+               'coke':319/139,
+               'milk':319/42.3,
+               'instant noodles':319/340},
+  'weight':{'gr':1/0.001,
+            'kg':1,
+            'ton':1/1000,
+            'adult person':1/70,
+            'a teenager':1/40,
+            'cat':1/4,
+            'mouse':1/15,
+            'dog':1/3,
+            'cow':1/450,
+            'elephant':1/5000,
+            'giraffe':1/1930,
+            'penguin':1/22,
+            'dolphin':1/50,
+            'blue whale':1/150000,
+            'brontosaurus':1/13600,
+            't-rex':1/5000},
+  'time':{'seconds':3600,
+          'minutes':60,
+          'hour':1,
+          'day':1/24,
+          'week':1/((24*7)),
+          'month':1/(24*30),
+          'year':1/(24*365),
+          'cat year':1/(24*365*5),
+          'dog year':None}}
+
+col1,col2,col3,col4,col5 = st.columns(5)
+
+with col1:
+#category selection
+    category_list = list(conversion_factors.keys())
+    category = st.radio("Select category",options=category_list)
+
+with col2:
+    input_value = st.number_input("Input",min_value=1,value=1)
+    
+with col3:
+    base_unit_list = list(conversion_factors[category].keys())
+    base_unit = st.radio("From:",options=base_unit_list)
+    base_cf = conversion_factors[category][base_unit]
+
+with col4:
+    target_unit_list = list(conversion_factors[category].keys())
+    target_unit = st.radio("To:",options=target_unit_list)
+    target_cf = conversion_factors[category][target_unit]
+
+with col5:
+    st.write("Output:")
+    output_value = input_value / base_cf * target_cf
+    st.write(f'The {category} of {input_value} {base_unit} equals to {output_value:.2f} {target_unit}')
