@@ -10,6 +10,7 @@ maximum_price = data['Price'].max()
 selected_category = st.multiselect("Select Category",options=unique_category,default=unique_category)
 selected_store = st.multiselect("Select Store",options=unique_store,default=unique_store)
 price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,value=maximum_price)
+ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
 
 criteria1 = data['Category'].isin(selected_category)
 criteria2 = data['Store'].isin(selected_store)
@@ -17,19 +18,21 @@ criteria3 = data['Price'] <= price_point
 
 join_criteria = (criteria1) & (criteria2) & (criteria3)
 
-with st.container(border=True):
-  data = data[join_criteria]
-  data_count = len(data)
-  
-  for i in range(data_count):
-    product_picture = data.iloc[i]['Picture']
-    st.image(product_picture,width = 250)
-    product_name = data.iloc[i]['Name']
-    st.write(product_name)
-    
-    product_price = data.iloc[i]['Price']
-    st.write(product_price)
-    
+data = data[join_criteria]
+data_count = len(data)
+
+for i in range(le):
+  for c in range(columns):
+    if i%columns == c:
+      col = columns[c]
+      with col:
+        product_picture = data.iloc[i]['Picture']
+        st.image(product_picture,width = 240)
+
+    #product_name = data.iloc[i]['Name']
+    #st.write(product_name)
+    #product_price = data.iloc[i]['Price']
+
     btnc1,btnc2 = st.columns(2)
     with st.container():
       with btnc1:
@@ -40,5 +43,4 @@ with st.container(border=True):
         if st.button("Add To Cart",key=str(i)+"b"):
           st.write("Added to cart successfully!")
 
-    
   st.dataframe(data,use_container_width=True)
