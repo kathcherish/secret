@@ -29,7 +29,7 @@ for i in range(data_count):
       col = columns[c]
       with col:
         product_picture = data.iloc[i]['Picture']
-        st.image(product_picture,width = 240)
+        st.image(product_picture,width = 250)
 
     #product_name = data.iloc[i]['Name']
     #st.write(product_name)
