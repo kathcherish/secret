@@ -25,7 +25,7 @@ with st.container(border=True):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
 
-    if st.button("Buy",key=str(I)):
+    if st.button("Buy",key=str(i)):
       st.write("Ok,thank you!")
 
     product_name = data.iloc[i]['Name']
