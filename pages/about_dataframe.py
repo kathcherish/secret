@@ -24,13 +24,14 @@ with st.container(border=True):
   for i in range(data_count):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
+    btnc1,btcn2 = st.columns(2)
+    with st.container():
+      with btnc1:
+        if st.button("Buy",key=str(i)):
+          st.write("Ok,thank you!")
 
-    if st.button("Buy",key=str(i)):
-      st.write("Ok,thank you!")
-
-    if st.button("Add To Cart",key=str(i)+"b"):
-      st.write("Added to cart successfully. Your things will be deliver soon!")
-      
+        if st.button("Add To Cart",key=str(i)+"b"):
+          st.write("Added to cart successfully. Your things will be deliver soon!")
 
     product_name = data.iloc[i]['Name']
     st.write(product_name)
