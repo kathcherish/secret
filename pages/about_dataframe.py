@@ -33,14 +33,14 @@ for i in range(data_count):
     #st.write(product_name)
     #product_price = data.iloc[i]['Price']
 
-    btnc1,btnc2 = st.columns(2)
-    with st.container():
-      with btnc1:
-        if st.button("Buy",key=str(i)):
-          st.write("Thank you! Your things will be deliver soon!")
+        btnc1,btnc2 = st.columns(2)
+        with st.container():
+          with btnc1:
+            if st.button("Buy",key=str(i)):
+            st.write("Thank you! Your things will be deliver soon!")
 
-      with btnc2:
-        if st.button("Add To Cart",key=str(i)+"b"):
-          st.write("Added to cart successfully!")
+          with btnc2:
+            if st.button("Add To Cart",key=str(i)+"b"):
+            st.write("Added to cart successfully!")
 
   st.dataframe(data,use_container_width=True)
