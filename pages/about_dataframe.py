@@ -23,7 +23,7 @@ data_count = len(data)
 
 for i in range(data_count):
   for c in range(ncolumns):
-    if i%columns == c:
+    if i%ncolumns == c:
       col = columns[c]
       with col:
         product_picture = data.iloc[i]['Picture']
