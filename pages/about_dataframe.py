@@ -20,9 +20,13 @@ join_criteria = (criteria1) & (criteria2) & (criteria3)
 with st.container(border=True):
   data = data[join_criteria]
   data_count = len(data)
+  
   for i in range(data_count):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
+
+    if st.button("Buy",key=str(I)):
+      st.write("Ok,thank you!")
 
     product_name = data.iloc[i]['Name']
     st.write(product_name)
