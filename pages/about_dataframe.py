@@ -39,10 +39,10 @@ for i in range(data_count):
         with st.container():
           with btnc1:
             if st.button("Buy",key=str(i)):
-            st.write("Thank you! Your things will be deliver soon!")
+              st.write("Thank you! Your things will be deliver soon!")
 
           with btnc2:
             if st.button("Add To Cart",key=str(i)+"b"):
-            st.write("Added to cart successfully!")
+              st.write("Added to cart successfully!")
 
   st.dataframe(data,use_container_width=True)
