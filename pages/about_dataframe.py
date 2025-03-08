@@ -21,8 +21,8 @@ join_criteria = (criteria1) & (criteria2) & (criteria3)
 data = data[join_criteria]
 data_count = len(data)
 
-for i in range(le):
-  for c in range(columns):
+for i in range(data_count):
+  for c in range(ncolumns):
     if i%columns == c:
       col = columns[c]
       with col:
