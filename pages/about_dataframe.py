@@ -30,12 +30,13 @@ with st.container(border=True):
     product_price = data.iloc[i]['Price']
     st.write(product_price)
     
-    btnc1,btcn2 = st.columns(2)
+    btnc1,btnc2 = st.columns(2)
     with st.container():
       with btnc1:
         if st.button("Buy",key=str(i)):
           st.write("Thank you! Your things will be deliver soon!")
 
+      with btnc2:
         if st.button("Add To Cart",key=str(i)+"b"):
           st.write("Added to cart successfully!")
 
