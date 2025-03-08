@@ -24,6 +24,12 @@ with st.container(border=True):
   for i in range(data_count):
     product_picture = data.iloc[i]['Picture']
     st.image(product_picture,width = 250)
+    product_name = data.iloc[i]['Name']
+    st.write(product_name)
+    
+    product_price = data.iloc[i]['Price']
+    st.write(product_price)
+    
     btnc1,btcn2 = st.columns(2)
     with st.container():
       with btnc1:
@@ -33,10 +39,5 @@ with st.container(border=True):
         if st.button("Add To Cart",key=str(i)+"b"):
           st.write("Added to cart successfully!")
 
-    product_name = data.iloc[i]['Name']
-    st.write(product_name)
-    
-    product_price = data.iloc[i]['Price']
-    st.write(product_price)
     
   st.dataframe(data,use_container_width=True)
