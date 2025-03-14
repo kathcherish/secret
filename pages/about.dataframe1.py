@@ -32,9 +32,10 @@ for i in range(data_count):
       with col:
         product_picture = data.iloc[i]['Picture']
         product_name = data.iloc[i]['Name']
+        product_price = data.iloc[i]['Price']
         st.image(product_picture,width = 250)
         st.write(product_name)
-        st.write(price)
+        st.write(product_price)
 
     #product_name = data.iloc[i]['Name']
     #st.write(product_name)
