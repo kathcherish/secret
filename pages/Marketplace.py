@@ -33,9 +33,11 @@ for i in range(data_count):
       col = columns[c]
       with col:
         product_picture = data.iloc[i]['Picture']
+        product_store = data.iloc[i]['Store']
         product_name = data.iloc[i]['Name']
         product_price = data.iloc[i]['Price']
         st.image(product_picture,width = 250)
+        st.store(f'{product_store}')
         st.write(f'{product_name}')
         st.write(f'{product_price:#,}')
 
