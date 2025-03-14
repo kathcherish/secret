@@ -53,4 +53,4 @@ for i in range(data_count):
             if st.button("Add To Cart",key=str(i)+"b"):
               st.write("Added to cart successfully!")
 
-  st.dataframe(data,use_container_width=True)
+  #st.dataframe(data,use_container_width=True)
