@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 
+st.title("WELCOME TO SARIROTI MARKETPLACE!")
+
 data = pd.read_excel('./pages/sources.xlsx')
 unique_category = data['Category'].unique()
 unique_store = data['Store'].unique()
@@ -30,8 +32,8 @@ for i in range(data_count):
       with col:
         product_picture = data.iloc[i]['Picture']
         product_name = data.iloc[i]['Name']
-        st.write(product_name)
         st.image(product_picture,width = 250)
+        st.write(product_name)
 
     #product_name = data.iloc[i]['Name']
     #st.write(product_name)
