@@ -41,10 +41,6 @@ for i in range(data_count):
         st.write(f'{product_name}')
         st.write(f'{product_price:#,}')
 
-    #product_name = data.iloc[i]['Name']
-    #st.write(product_name)
-    #product_price = data.iloc[i]['Price']
-
         btnc1,btnc2 = st.columns(2)
         with st.container():
           with btnc1:
@@ -55,4 +51,3 @@ for i in range(data_count):
             if st.button("Add To Cart",key=str(i)+"b"):
               st.write("Added to cart successfully!")
 
-  #st.dataframe(data,use_container_width=True)
