@@ -35,7 +35,7 @@ for i in range(data_count):
         product_price = data.iloc[i]['Price']
         st.image(product_picture,width = 250)
         st.write(f'{product_name}')
-        st.write(f'{product_price}')
+        st.write(f'{product_price:#,}')
 
     #product_name = data.iloc[i]['Name']
     #st.write(product_name)
