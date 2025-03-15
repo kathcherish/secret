@@ -3,7 +3,7 @@ import streamlit as st
 
 st.set_page_config(layout='wide')
 
-st.title("WELCOME TO SARIROTI MARKETPLACE!🏨")
+st.title("WELCOME TO SARIROTI MARKETPLACE!🍞🥐🥖")
 
 data = pd.read_excel('./pages/sources.xlsx')
 unique_category = data['Category'].unique()
