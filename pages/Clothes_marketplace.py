@@ -7,7 +7,7 @@ st.set_page_config(layout='wide')
 
 st.title("Stylique.🌷")
 
-data = pd.read_excel('./pages/sources1.xlsx')
+data = pd.read_excel('./pages/sumber.xlsx')
 unique_category = data['Category'].unique()
 minimum_price = data['Price'].min()
 maximum_price = data['Price'].max()
