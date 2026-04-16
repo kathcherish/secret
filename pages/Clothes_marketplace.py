@@ -20,11 +20,16 @@ ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
 criteria1 = data['Category'].isin(selected_category)
 criteria2 = data['Price'] <= price_point
 
+size_pattern =
+ 
 if selected_size:
-  size_pattern =
-  
+  "|".join(selected_size) criteria3 = data['Sizes'].str.contains(size_pattern, na=False)
+  join_criteria = (criteria1) & (criteria2) & (criteria3)
+ 
+else:
+  join_criteria = (criteria1) & (criteria2)
 
-join_criteria = (criteria1) & (criteria2) & (criteria3) & (criteria4) & (criteria5) & (criteria6)
+#join_criteria = (criteria1) & (criteria2) & (criteria3) & (criteria4) & (criteria5) & (criteria6)
 
 data = data[join_criteria]
 data_count = len(data)
