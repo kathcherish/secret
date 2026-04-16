@@ -3,40 +3,60 @@ import pandas as pd
 
 df = pd.read_excel('sources1.xlsx')
 
-with st.container(border=True):
-    col1,col2,col3 = st.columns(3)
-    
-    with col1: 
-        selected_Category = st.selectbox("Choose Category",
-                                        options=df['Category'].unique())
-    
-    with col2:
-        selected_Name = st.selectbox("Choose Name",
-                                     options=df['Name'].unique())
-    
-    with col3:
-        selected_Store = st.selectbox("Choose Store",
-                                      options=df['Store'].unique())
-        
-    with col4:
-        selected_Size1 = st.selectbox("Choose Size",
-                                      options=df['Size1'].unique())
-        
-    with col5:
-        selected_Size2 = st.selectbox("Choose Size",
-                                      options=df['Size2'].unique())
-        
-    with col6:
-        selected_Size3 = st.selectbox("Choose Size",
-                                      options=df['Size3'].unique())
-        
+st.set_page_config(layout='wide')
 
-df = df[df['Category'] == selected_Category ]
-df = df[df['Name'] == selected_Name ]
-df = df[df['Store'] == selected_Store ]
-df = df[df['Size1'] == selected_Size1 ]
-df = df[df['Size2'] == selected_Size2 ]
-df = df[df['Size3'] == selected_Size3 ]
+st.title("Stylique.🌷")
 
-st.dataframe(df)
+data = pd.read_excel('./pages/sources1.xlsx')
+unique_category = data['Category'].unique()
+minimum_price = data['Price'].min()
+maximum_price = data['Price'].max()
+
+selected_category = st.multiselect("Select Category",options=unique_category,default=unique_category)
+selected_size1 = st.multiselect("Select Size1",options=unique_store,default=unique_store)
+selected_size2 = st.multiselect("Select Size2",options=unique_store,default=unique_store)
+selected_size3 = st.multiselect("Select Size3",options=unique_store,default=unique_store)
+price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,value=maximum_price)
+ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
+
+criteria1 = data['Category'].isin(selected_category)
+criteria2 = data['Price'] <= price_point
+criteria3 = data['Size1'].isin(selected_size1)
+criteria4 = data['Size2'].isin(selected_size2)
+criteria5 = data['Size3'].isin(selected_size3)
+
+join_criteria = (criteria1) & (criteria2) & (criteria3) & (criteria4) & (criteria5) & (criteria6)
+
+data = data[join_criteria]
+data_count = len(data)
+
+columns = st.columns(ncolumns)
+
+for i in range(data_count):
+  for c in range(ncolumns):
+    if i%ncolumns == c:
+      col = columns[c]
+      with col:
+        product_picture = data.iloc[i]['Picture']
+        product_size1 = data.iloc[i]['Size1']
+        product_size2 = data.iloc[i]['Size2']
+        product_size3 = data.iloc[i]['Size3']
+        product_name = data.iloc[i]['Name']
+        product_price = data.iloc[i]['Price']
+        st.image(product_picture,width = 250)
+        st.write(f'{product_size1}')
+        st.write(f'{product_size2}')
+        st.write(f'{product_size3}')
+        st.write(f'{product_name}')
+        st.write(f'{product_price:#,}')
+
+        btnc1,btnc2 = st.columns(2)
+        with st.container():
+          with btnc1:
+            if st.button("Buy",key=str(i)):
+              st.write("Thank you! Your things will be deliver soon!")
+
+          with btnc2:
+            if st.button("Add To Cart",key=str(i)+"b"):
+              st.write("Added to cart successfully!")
 
