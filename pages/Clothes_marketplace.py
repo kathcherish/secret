@@ -13,9 +13,7 @@ minimum_price = data['Price'].min()
 maximum_price = data['Price'].max()
 
 selected_category = st.multiselect("Select Category",options=unique_category,default=unique_category)
-selected_size1 = st.multiselect("Select Size1",options=unique_store,default=unique_store)
-selected_size2 = st.multiselect("Select Size2",options=unique_store,default=unique_store)
-selected_size3 = st.multiselect("Select Size3",options=unique_store,default=unique_store)
+selected_size = st.multiselect("Select Size", ["S", "M", "XL"])
 price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,value=maximum_price)
 ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
 
