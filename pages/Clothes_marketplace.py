@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_excel('sumber.xlsx')
+df = pd.read_excel('sumber.xlsx.xlsx')
 
 st.set_page_config(layout='wide')
 
 st.title("Stylique.🌷")
 
-data = pd.read_excel('./pages/sumber.xlsx')
+data = pd.read_excel('./pages/sumber.xlsx.xlsx')
 unique_category = data['Category'].unique()
 minimum_price = data['Price'].min()
 maximum_price = data['Price'].max()
@@ -19,9 +19,10 @@ ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
 
 criteria1 = data['Category'].isin(selected_category)
 criteria2 = data['Price'] <= price_point
-criteria3 = data['Size1'].isin(selected_size1)
-criteria4 = data['Size2'].isin(selected_size2)
-criteria5 = data['Size3'].isin(selected_size3)
+
+if selected_size:
+  size_pattern =
+  
 
 join_criteria = (criteria1) & (criteria2) & (criteria3) & (criteria4) & (criteria5) & (criteria6)
 
@@ -36,15 +37,10 @@ for i in range(data_count):
       col = columns[c]
       with col:
         product_picture = data.iloc[i]['Picture']
-        product_size1 = data.iloc[i]['Size1']
-        product_size2 = data.iloc[i]['Size2']
-        product_size3 = data.iloc[i]['Size3']
         product_name = data.iloc[i]['Name']
         product_price = data.iloc[i]['Price']
+        product_sizes = data.iloc[i]['Sizes']
         st.image(product_picture,width = 250)
-        st.write(f'{product_size1}')
-        st.write(f'{product_size2}')
-        st.write(f'{product_size3}')
         st.write(f'{product_name}')
         st.write(f'{product_price:#,}')
 
