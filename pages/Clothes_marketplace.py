@@ -14,7 +14,7 @@ maximum_price = data['Price'].max()
 selected_category = st.multiselect("Select Category",options=unique_category,default=unique_category)
 selected_store = st.multiselect("Select Store",options=unique_store,default=unique_store)
 price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,value=maximum_price)
-ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
+ncolumns = st.number_input("Layout",min_value=1,value=4,step=1)
 
 criteria1 = data['Category'].isin(selected_category)
 criteria2 = data['Store'].isin(selected_store)
