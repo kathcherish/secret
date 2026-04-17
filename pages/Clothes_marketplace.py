@@ -1,35 +1,28 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_excel('sumber.xlsx.xlsx')
+df = pd.read_excel('sources2.xlsx')
 
 st.set_page_config(layout='wide')
 
 st.title("Stylique.🌷")
 
-data = pd.read_excel('./pages/sumber.xlsx.xlsx')
+data = pd.read_excel('./pages/sources2.xlsx')
 unique_category = data['Category'].unique()
+unique_store = data['Store'].unique()
 minimum_price = data['Price'].min()
 maximum_price = data['Price'].max()
 
 selected_category = st.multiselect("Select Category",options=unique_category,default=unique_category)
-selected_size = st.multiselect("Select Size", ["S", "M", "XL"])
+selected_store = st.multiselect("Select Store",options=unique_store,default=unique_store)
 price_point = st.slider("Price",min_value=minimum_price,max_value=maximum_price,value=maximum_price)
 ncolumns = st.number_input("Column layout",min_value=1,value=4,step=1)
 
 criteria1 = data['Category'].isin(selected_category)
-criteria2 = data['Price'] <= price_point
+criteria2 = data['Store'].isin(selected_store)
+criteria3 = data['Price'] <= price_point
 
-size_pattern =
- 
-if selected_size:
-  "|".join(selected_size) criteria3 = data['Sizes'].str.contains(size_pattern, na=False)
-  join_criteria = (criteria1) & (criteria2) & (criteria3)
- 
-else:
-  join_criteria = (criteria1) & (criteria2)
-
-#join_criteria = (criteria1) & (criteria2) & (criteria3) & (criteria4) & (criteria5) & (criteria6)
+join_criteria = (criteria1) & (criteria2) & (criteria3)
 
 data = data[join_criteria]
 data_count = len(data)
@@ -42,10 +35,11 @@ for i in range(data_count):
       col = columns[c]
       with col:
         product_picture = data.iloc[i]['Picture']
+        product_store = data.iloc[i]['Store']
         product_name = data.iloc[i]['Name']
         product_price = data.iloc[i]['Price']
-        product_sizes = data.iloc[i]['Sizes']
         st.image(product_picture,width = 250)
+        st.write(f'{product_store}')
         st.write(f'{product_name}')
         st.write(f'{product_price:#,}')
 
@@ -58,4 +52,3 @@ for i in range(data_count):
           with btnc2:
             if st.button("Add To Cart",key=str(i)+"b"):
               st.write("Added to cart successfully!")
-
