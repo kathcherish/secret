@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_excel('sources2.xlsx')
-
 st.set_page_config(layout='wide')
 
 st.title("Stylique.🌷")
